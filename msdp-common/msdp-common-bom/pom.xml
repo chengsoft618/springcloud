@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>msdp-common-bom</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <description>msdp 公共版本控制</description>
+
+    <properties>
+        <msdp.version>1.0.0</msdp.version>
+        <mybatis-spring.version>2.1.0</mybatis-spring.version>
+        <mybatis-plus.version>3.1.2</mybatis-plus.version>
+        <mybatis-plus-sharding.version>2.5.5</mybatis-plus-sharding.version>
+        <mysql.connector.version>8.0.13</mysql.connector.version>
+        <swagger.core.version>1.5.22</swagger.core.version>
+        <jasypt.version>2.1.1</jasypt.version>
+        <liquibase.version>3.8.0</liquibase.version>
+        <validation.version>2.0.0.Final</validation.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--msdp 工具包-->
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-core</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-data</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-gateway</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-job</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-log</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-minio</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-security</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-swagger</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-transaction</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-utils</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-common-crud</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.iyysoft</groupId>
+                <artifactId>msdp-upms-api</artifactId>
+                <version>${msdp.version}</version>
+            </dependency>
+            <!--mybatis plus extension,包含了mybatis plus core-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- mybatis plus 分库分表,读写分离 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${mybatis-plus-sharding.version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--mysql 驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+            <!--jasypt配置文件加解密-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+            <!--swagger 最新依赖内置版本-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <!-- 热部署配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <optional>true</optional>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,12 @@
+security:
+  encode:
+    # 前端密码密钥，必须16位
+    key: 'iyysoft.msdp.123'
+
+# 不校验验证码终端
+ignore:
+  clients:
+    - test
+  swagger-providers:
+    - ${AUTH-HOST:msdp-auth}
+    - ${TX-MGR-HOST:msdp-tx-manager}

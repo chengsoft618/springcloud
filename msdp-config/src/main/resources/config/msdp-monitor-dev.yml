@@ -1,0 +1,6 @@
+spring:
+  # 安全配置
+  security:
+    user:
+      name: ENC(BdFmMnrTF7Bmjpx/Z7pYOJf+D8TjhZO+)    # jcweb
+      password: ENC(BdFmMnrTF7Bmjpx/Z7pYOJf+D8TjhZO+)   # jcweb

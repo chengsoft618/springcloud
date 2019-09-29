@@ -1,0 +1,52 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(qC+CYkhYFhSEFoO6gT8MHw==)      #daemon
+      client-secret: ENC(qC+CYkhYFhSEFoO6gT8MHw==)  #daemon
+      scope: server
+## 定时任务
+spring:
+  # 保存定时任务的数据源
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
+    password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
+    url: jdbc:mysql://${MYSQL-HOST:122.112.234.91}:${MYSQL-PORT:3306}/${MYSQL-DB:iyysoft_job}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+  elasticjob:
+    # 分布式任务协调依赖zookeeper
+    zookeeper:
+      server-lists: ${ZOOKEEPER-HOST:msdp-zookeeper}:${ZOOKEEPER-PORT:2181}
+      namespace: msdp-daemon
+    # 普通任务
+    simples:
+      spring-simple-job:
+        job-class: com.iyysoft.msdp.daemon.elastic.job.iyysoftSimpleJob
+        cron: 0 0 0/1 * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          listener-class: com.iyysoft.msdp.daemon.elastic.listener.iyysoftElasticJobListener
+      spring-simple-job2:
+        job-class: com.iyysoft.msdp.daemon.elastic.job.iyysoftSimpleJob2
+        cron: 0 0 0/1 * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          listener-class: com.iyysoft.msdp.daemon.elastic.listener.iyysoftElasticJobListener
+    # 简单任务
+    dataflows:
+      spring-dataflow-job:
+        job-class: com.iyysoft.msdp.daemon.elastic.job.iyysoftDataflowJob
+        cron: 0 0 0/1 * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        streaming-process: true
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          distributed-listener-class: com.iyysoft.msdp.daemon.elastic.listener.iyysoftDistributeElasticJobListener
+          started-timeout-milliseconds: 5000
+          completed-timeout-milliseconds: 10000

@@ -1,0 +1,60 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: msdp.actf    #act
+      client-secret: msdp.actf    #act
+      scope: server
+      ignore-urls:
+        - '/actuator/**'
+        - '/v2/api-docs'
+        - '/service/**'
+        - '/process/resource/**'
+        - '/index.html'
+        - '/ws/**'
+        - '/static/**'
+        - '/stencilset/**'
+        - '/modeler/**'
+        - '/idm/**'
+        - '/admin/**'
+        - '/task/**'
+        - '/modeler/editor-app/**'
+        - '/modeler/index.html'
+        - '/task/editor-app/**'
+        - '/task/view/**'
+        - '/api/msdpFlowable/**'
+        - '/app/**'
+        - '/app/rest/**'
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/,classpath:/stencilset/
+  autoconfigure:
+    exclude: org.flowable.spring.boot.FlowableSecurityAutoConfiguration
+  flowable:
+    #关闭定时任务JOB
+    async-executor-activate: false
+    #  将databaseSchemaUpdate设置为true。当Flowable发现库与数据库表结构不一致时，会自动将数据库表结构升级至新版本。
+    database-schema-update: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ms_act
+    password: base.C1act
+    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+
+#flowable:
+#  activity-font-name: 宋体
+#  annotation-font-name: 宋体
+#  label-font-name: 宋体
+
+# 租户表维护
+iyysoft:
+  tenant:
+    column: tenant_id
+    tables:
+      - oa_leave_bill
+      - act_leave_bill
+
+

@@ -1,0 +1,138 @@
+env: prod
+REDIS-HOST: msdp-redis
+REDIS-PORT: 9005
+ZIPKIN-HOST: msdp-zipkin
+GATEWAY-HOST: msdp-gateway
+GATEWAY-PORT: 5003
+AUTH-HOST: msdp-auth
+MYSQL-HOST: msdp-mysql
+MYSQL-USER: t_upm
+MYSQL-PWD: base.C1upm
+MYSQL-PORT: 4306
+
+# 文件系统 (提供测试环境，不要乱传)
+minio:
+  url: http://minio.msdp.com:9000
+  access-key: ENC(VB7z4nTk65ZNG5zT4t+w/iR97K8RsTt0) #msdp.file
+  secret-key: ENC(dJ6vHXQLIwVmW0HT85Dya03VSFsVWy4E) #msdp.file123
+
+# 加解密根密码
+jasypt:
+  encryptor:
+    password: msdp #根密码
+# redis 相关
+spring:
+  servlet:
+    multipart:
+      max-file-size: 3000MB
+      max-request-size: 3000MB
+  redis:
+    password: msdp.redis123
+    host: ${REDIS-HOST:msdp-redis}
+    port: ${REDIS-PORT:9005}
+  # zipkin
+  zipkin:
+    enabled: true
+    base-url: http://${ZIPKIN-HOST:msdp-zipkin}
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      # 默认的采样比率为0.1，不能看到所有请求数据
+      # 更改采样比率为1，就能看到所有的请求数据了，但是这样会增加接口调用延迟
+      probability: 1.0
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# feign 配置
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+# hystrix If you need to use ThreadLocal bound variables in your RequestInterceptor`s
+# you will need to either set the thread isolation strategy for Hystrix to `SEMAPHORE or disable Hystrix in Feign.
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 60000
+  shareSecurityContext: true
+
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+# mybaits-plus配置
+mybatis-plus:
+  # MyBatis Mapper所对应的XML文件位置
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      # 主键类型 0:数据库ID自增 1.未定义 2.用户输入 3 id_worker 4.uuid 5.id_worker字符串表示
+      id-type: 0
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: 1
+      # 默认数据库表下划线命名
+      table-underline: true
+
+#swagger公共信息
+swagger:
+  host: ${GATEWAY-HOST:msdp-gateway}:${GATEWAY-PORT:5003}
+  title: iyysoft Swagger API
+  description: Spring Cloud微服务开发平台
+  version: @project.version@
+  base-path: /**
+  license: Powered By iyysoft
+  licenseUrl: https://swagger.iyysoft.com/
+  terms-of-service-url: https://terms.iyysoft.com/
+  contact:
+    name: mao.chi
+    email: 876441905@qq.com
+    url: https://www.***.com/about.html
+  authorization:
+    name: msdp OAuth
+    auth-regex: ^.*$
+    authorization-scope-list:
+      - scope: server
+        description: server all
+    token-url-list:
+      - http://${GATEWAY-HOST:msdp-gateway}:${GATEWAY-PORT:5003}/auth/oauth/token
+
+## spring security 配置
+security:
+  oauth2:
+    client:
+      # 默认放行url,如果子模块重写这里的配置就会被覆盖
+      ignore-urls:
+        - /actuator/**
+        - /v2/api-docs
+    resource:
+      loadBalanced: true
+      token-info-uri: http://${AUTH-HOST:msdp-auth}/oauth/check_token
+         

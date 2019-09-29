@@ -1,0 +1,36 @@
+server:
+  port: 5001
+
+spring:
+  security:
+    user:
+      name: msdp
+      password: msdp.123
+  application:
+    name: @artifactId@
+  cloud:
+    config:
+      enabled: false
+  profiles:
+    active: @profile.active@
+# docker-compose部署时候 hostname 换成msdp-eureka
+# 类似的 redis 使用msdp-redis ,gateway 换成 msdp-gateway
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://msdp:msdp.123@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.9
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

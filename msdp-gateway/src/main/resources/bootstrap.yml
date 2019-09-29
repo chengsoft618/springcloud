@@ -1,0 +1,27 @@
+server:
+  port: 5003
+
+spring:
+  application:
+    name: @artifactId@
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: msdp-config
+  profiles:
+    active: @profile.active@
+
+
+# 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://msdp:msdp.123@${EUREKA-HOST:msdp-eureka}:${EUREKA-PORT:5002}/eureka/
+

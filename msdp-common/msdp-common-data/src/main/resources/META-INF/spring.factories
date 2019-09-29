@@ -1,0 +1,10 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.iyysoft.msdp.common.data.cache.RedisTemplateConfig,\
+    com.iyysoft.msdp.common.data.cache.RedisCacheManagerConfig,\
+    com.iyysoft.msdp.common.data.cache.RedisCacheAutoConfiguration,\
+    com.iyysoft.msdp.common.data.tenant.MsdpTenantConfigProperties,\
+    com.iyysoft.msdp.common.data.tenant.TenantContextHolderFilter,\
+    com.iyysoft.msdp.common.data.tenant.MsdpFeignTenantConfiguration,\
+    com.iyysoft.msdp.common.data.mybatis.MybatisPlusConfig,\
+    com.ulisesbocchio.jasyptspringboot.JasyptSpringBootAutoConfiguration,\
+    com.iyysoft.msdp.common.data.norepeat.NoRepeatSubmitConfig

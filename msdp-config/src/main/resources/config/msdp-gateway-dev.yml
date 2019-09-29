@@ -1,0 +1,27 @@
+#服务端配置跨域
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowCredentials: true
+            exposedHeaders: "Content-Disposition,Content-Type,Cache-Control"
+            allowedHeaders: "*"
+            allowedOrigins: "*"
+            allowedMethods: "*"
+
+security:
+  encode:
+    # 前端密码密钥，必须16位  //iyysoft.msdp.123
+    key: 'iyysoft1msdp1123'
+  validate:
+    code: true
+# 不校验验证码终端
+ignore:
+  clients:
+    - test
+  swagger-providers:
+    - ${AUTH-HOST:msdp-auth}
+    - ${TX-MGR-HOST:msdp-tx-manager}
+

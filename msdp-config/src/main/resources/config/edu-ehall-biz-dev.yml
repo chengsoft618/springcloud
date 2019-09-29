@@ -1,0 +1,60 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(Lml0QI+7bzNMpRqvsBEfcvob65y4Zk5D)  #web
+      client-secret: ENC(Lml0QI+7bzNMpRqvsBEfcvob65y4Zk5D)  #web
+      scope: server
+      # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
+      ignore-urls:
+        - /actuator/**
+        - /v2/api-docs
+        - /user/info/*
+        - /user/third/**
+        - /mauth/**
+        - /verify/**
+        - /reg/**
+        - /log/save
+        - /v1/**
+        - /v2/**
+        - /test/**
+
+# 数据源
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
+    password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
+    url: jdbc:mysql://${MYSQL-HOST:122.112.234.91}:${MYSQL-PORT:3306}/${MYSQL-DB:edu_ehall}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+
+# 文件系统 (提供测试环境，不要乱传)
+minio:
+  url: http://minio.msdp.com:9000
+  access-key: ENC(VB7z4nTk65ZNG5zT4t+w/iR97K8RsTt0) #msdp.file
+  secret-key: ENC(dJ6vHXQLIwVmW0HT85Dya03VSFsVWy4E) #msdp.file123
+
+# Logger Config
+logging:
+  level:
+    com.iyysoft.edu.ehall: debug
+
+aliyun:
+  oss:
+    accessKeyId: LTAIodEGRN4SFaSk
+    accessKeySecret: IOZEea776GnMBeejulcPH8pSKRYIIk
+    bucketName: yazf
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+client_id: APP00208ABC1BE36949
+client_secret: 356348E4F6EC8DBF9C37470E7234F4AF
+domain:
+  auth: https://auth-platform.iyysoft.com
+  device: https://device-platform.iyysoft.com
+  oauthClient: https://oauthclient-platform.iyysoft.com
+grant_type: client_credentials
+scope: read+write
+url:
+  bindingDevice: ${domain.oauthClient}/device/
+  companyToken: ${domain.auth}/oauth/token
+  device: ${domain.device}/oauthClient/device/
+

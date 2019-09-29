@@ -1,0 +1,30 @@
+## spring security 配置ENC(vuCh4q0YxgMooF9vWjIIsQ==)
+security:
+  oauth2:
+    client:
+      client-id: msdp.gen    #gen
+      client-secret: msdp.gen   #webENC(lA91hcPyQH9gxUjvlIYqobjePiN0Hdd2)
+      scope: server
+
+# 数据源配置
+#upms
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
+    password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
+    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+  resources:
+    static-locations: classpath:/static/,classpath:/views/
+
+#spring:
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: ms_app
+#    password: base.C1app
+#    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+#  resources:
+#    static-locations: classpath:/static/,classpath:/views/
+

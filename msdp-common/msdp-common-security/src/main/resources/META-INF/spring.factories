@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.springframework.cloud.openfeign.MsdpHystrixFeignTargeterConfiguration,\
+  com.iyysoft.msdp.common.security.component.GlobalExceptionHandlerResolver,\
+  com.iyysoft.msdp.common.security.service.MsdpUserDetailsServiceImpl

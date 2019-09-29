@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.iyysoft.msdp.common.core.config.JacksonConfig,\
+  com.iyysoft.msdp.common.core.config.MessageSourceConfig,\
+  com.iyysoft.msdp.common.core.config.RestTemplateConfig,\
+  com.iyysoft.msdp.common.core.util.MessageManager,\
+  com.iyysoft.msdp.common.core.util.SpringContextHolder

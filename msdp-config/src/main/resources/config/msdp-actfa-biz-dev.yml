@@ -1,0 +1,116 @@
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false
+  process-definition-location-prefix: classpath*:/processes/
+  common:
+    app:
+      idm-url: msdp_actfa:5997
+      idm-admin:
+        user: admin
+        password: test
+  rest:
+    app:
+      authentication-mode: verify-privilege
+  modeler:
+    app:
+      data-source-prefix: ''
+      rest-enabled: true
+  idm:
+    app:
+      admin:
+        last-name: admin
+        first-name: admin
+        user-id: admin
+        password: test
+    enabled: true
+    ldap:
+      enabled: false
+  async-history-executor-activate: false
+
+ldap:
+  enabled: false
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: msdp.actfa    #msdp.app
+      client-secret: msdp.actfa    #msdp.app
+      scope: server
+      # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
+      ignore-urls:
+        - /actuator/**
+        - /v2/api-docs
+        - /user/info/*
+        - /user/third/**
+        - /mauth/**
+        - /verify/**
+        - /reg/**
+        - /log/save
+        - /v1/**
+        - /user/userId/**
+        - /mobile/sendsms/**
+        - '/index.html'
+        - '/stencilset/**'
+        - '/static/**'
+        - '/modeler/**'
+        - '/modeler/index.html'
+        - '/api/**'
+        - '/app/rest/**'
+        - '/process/resource/**'
+
+# 数据源
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+  datasource:
+    username: ms_act
+    password: base.C1act
+    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    dynamic:
+      primary: master_
+      datasource:
+        master_:  #使用vip 数据源
+          username: ms_act
+          password: base.C1act
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+        slave_:  #使用vip 数据源
+          username: ms_act
+          password: base.C1act
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+        #postgresql:
+        #oracle:
+  #  autoconfigure:
+  #    exclude: org.flowable.spring.boot.FlowableSecurityAutoConfiguration
+#  flowable:
+#    #关闭定时任务JOB
+#    async-executor-activate: false
+#    #  将databaseSchemaUpdate设置为true。当Flowable发现库与数据库表结构不一致时，会自动将数据库表结构升级至新版本。
+#    database-schema-update: false
+
+# 租户表维护
+iyysoft:
+  user:
+    default_role: 1
+  tenant:
+    column: tenant_id
+    tables:
+      - user
+      - role
+      - org
+      - log_oper
+      - user_third
+      - sys_dict
+      - sys_dict_item
+      - log

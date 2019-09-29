@@ -1,0 +1,35 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(e/ZbgAm4zoj/6UK/wKLbPsvhGtRgAiWn)    #act
+      client-secret: ENC(e/ZbgAm4zoj/6UK/wKLbPsvhGtRgAiWn)    #act
+      scope: server
+      ignore-urls:
+        - '/actuator/**'
+        - '/v2/api-docs'
+        - '/service/**'
+        - '/editor-app/**'
+        - '/task/view/*'
+        - '/process/resource/**'
+        - '/modeler.html'
+        - '/ws/**'
+spring:
+  autoconfigure:
+    exclude: org.activiti.spring.boot.SecurityAutoConfiguration
+  activiti:
+    check-process-definitions: false
+    database-schema-update: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(CKgBwj57yynLkRg7/7ofQw==)
+    password: ENC(mb/OJ/podc01JpZjwa1t6YmuF+iWpp75)
+    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+
+# 租户表维护
+iyysoft:
+  tenant:
+    column: tenant_id
+    tables:
+      - oa_leave_bill
