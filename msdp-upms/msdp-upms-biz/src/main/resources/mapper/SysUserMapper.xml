@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iyysoft.msdp.dp.sys.mapper.SysUserMapper">
+	<!-- 通用查询映射结果 -->
+	<resultMap id="baseResultMap" type="com.iyysoft.msdp.dp.sys.entity.SysUser">
+		<id column="user_id" property="userId"/>
+		<result column="login_name" property="loginName"/>
+		<result column="user_name" property="userName"/>
+		<result column="password" property="password"/>
+		<result column="salt" property="salt"/>
+		<result column="mobile" property="mobile"/>
+		<result column="phone" property="phone"/>
+		<result column="email" property="email"/>
+		<result column="user_nick" property="userNick"/>
+		<result column="birthday" property="birthday"/>
+		<result column="sex" property="sex"/>
+		<result column="area_id" property="areaId"/>
+		<result column="avatar" property="avatar"/>
+		<result column="ucreate_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="lock_flag" property="lockFlag"/>
+		<result column="del_flag" property="delFlag"/>
+		<result column="deptId" property="deptId"/>
+		<result column="tenantId" property="tenantId"/>
+		<result column="temp_open_id" property="tempOpenId"/>
+	</resultMap>
+
+	<!-- userVo结果集 -->
+	<resultMap id="userVoResultMap" type="com.iyysoft.msdp.dp.sys.vo.UserVo">
+		<id column="user_id" property="userId"/>
+		<result column="login_name" property="loginName"/>
+		<result column="user_name" property="userName"/>
+		<result column="password" property="password"/>
+		<result column="salt" property="salt"/>
+		<result column="mobile" property="mobile"/>
+		<result column="phone" property="phone"/>
+		<result column="email" property="email"/>
+		<result column="user_nick" property="userNick"/>
+		<result column="birthday" property="birthday"/>
+		<result column="sex" property="sex"/>
+		<result column="area_id" property="areaId"/>
+		<result column="avatar" property="avatar"/>
+		<result column="ucreate_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="lock_flag" property="lockFlag"/>
+		<result column="del_flag" property="delFlag"/>
+		<result column="deptId" property="deptId"/>
+		<result column="tenantId" property="tenantId"/>
+		<result column="deptName" property="deptName"/>
+		<collection property="roleList" ofType="com.iyysoft.msdp.dp.sys.entity.SysRole">
+			<id column="role_id" property="roleId"/>
+			<result column="role_name" property="roleName"/>
+			<result column="role_code" property="roleCode"/>
+			<result column="role_desc" property="roleDesc"/>
+			<result column="rcreate_time" property="createTime"/>
+			<result column="rupdate_time" property="updateTime"/>
+		</collection>
+	</resultMap>
+
+	<sql id="userRoleSql">
+		`user`.user_id,
+		`user`.login_name,
+		`user`.user_name,
+		`user`.`password`,
+		`user`.salt,
+		`user`.mobile,
+		`user`.phone,
+		`user`.email,
+		`user`.user_nick,
+		`user`.birthday,
+		`user`.sex,
+		`user`.area_id,
+		`user`.avatar,
+		`user`.dept_id,
+		`user`.create_time AS ucreate_time,
+		`user`.update_time AS uupdate_time,
+		`user`.del_flag AS udel_flag,
+		`user`.lock_flag AS lock_flag,
+		`user`.dept_id AS deptId,
+		`user`.tenant_id AS tenantId,
+		r.role_id,
+		r.role_name,
+		r.role_code,
+		r.role_desc,
+		r.create_time AS rcreate_time,
+		r.update_time AS rupdate_time
+	</sql>
+
+	<sql id="userRoleDeptSql">
+		`user`.user_id,
+		`user`.login_name,
+		`user`.user_name,
+		`user`.`password`,
+		`user`.salt,
+		`user`.mobile,
+		`user`.phone,
+		`user`.email,
+		`user`.user_nick,
+		`user`.birthday,
+		`user`.sex,
+		`user`.area_id,
+		`user`.avatar,
+		`user`.create_time AS ucreate_time,
+		`user`.update_time AS uupdate_time,
+		`user`.del_flag AS udel_flag,
+		`user`.lock_flag AS lock_flag,
+		`user`.tenant_id AS tenantId,
+		r.role_id,
+		r.role_name,
+		r.role_code,
+		r.role_desc,
+		r.create_time AS rcreate_time,
+		r.update_time AS rupdate_time,
+		d.name AS deptName,
+		d.dept_id AS deptId
+    </sql>
+
+	<select id="getUserVoByUsername" resultMap="userVoResultMap">
+		SELECT
+			<include refid="userRoleSql"/>
+		FROM
+		sys_user AS `user`
+		LEFT JOIN sys_user_role AS ur ON ur.user_id = `user`.user_id
+		LEFT JOIN sys_role AS r ON r.role_id = ur.role_id
+			WHERE `user`.login_name = #{username} limit 0,1
+	</select>
+
+	<select id="getUserVoByThird" resultMap="userVoResultMap">
+		SELECT
+		<include refid="userRoleSql"/>
+		FROM
+		sys_user AS `user`
+		WHERE `user`.user_id  = (select user_id from sys_user_third where third_id= #{thirdId} and open_id = #{openId})
+	</select>
+
+
+
+	<select id="getUserByThirdId" resultType="com.iyysoft.msdp.dp.sys.entity.SysUser">
+		SELECT user.*
+		FROM
+		sys_user AS `user`
+		WHERE `user`.user_id  = (select user_id from sys_user_third where third_id= #{thirdId} and open_id = #{openId})
+	</select>
+
+	<select id="getUserVoById" resultMap="userVoResultMap">
+        SELECT
+	   		<include refid="userRoleDeptSql"/>
+        FROM
+            sys_user AS `user`
+            LEFT JOIN sys_user_role AS ur ON ur.user_id = `user`.user_id
+            LEFT JOIN sys_role AS r ON r.role_id = ur.role_id
+            LEFT JOIN sys_dept AS d ON d.dept_id = `user`.dept_id
+        WHERE
+           `user`.user_id = #{userId}
+    </select>
+
+	<select id="getUserVosPage" resultMap="baseResultMap">
+		SELECT
+		`user`.user_id,
+		`user`.login_name,
+		`user`.user_name,
+		`user`.`password`,
+		`user`.salt,
+		`user`.mobile,
+		`user`.phone,
+		`user`.email,
+		`user`.user_nick,
+		`user`.birthday,
+		`user`.sex,
+		`user`.area_id,
+		`user`.avatar,
+		`user`.dept_id AS deptId,
+		`user`.create_time AS ucreate_time,
+		`user`.update_time AS uupdate_time,
+		`user`.del_flag AS udel_flag,
+		`user`.lock_flag AS lock_flag,
+		`user`.tenant_id AS tenantId,
+		 d.name AS deptName
+		FROM
+		sys_user AS `user`
+		LEFT JOIN sys_dept AS d ON d.dept_id = `user`.dept_id
+		<where>
+			<if test="query.username != null and query.username != ''">
+				and `user`.user_name LIKE CONCAT('%',#{query.username},'%')
+			</if>
+			<if test="query.deptId != null and query.deptId != ''">
+				and `user`.dept_id = #{query.deptId}
+			</if>
+		</where>
+		ORDER BY `user`.create_time DESC
+	</select>
+
+
+	<update id="resetPassword">
+		update sys_user set password = #{password}
+		WHERE user_id = #{userId}
+	</update>
+
+	<!--根据身份证 查询对应的用户信息-->
+	<select id="selectSysuserByIdno" resultType="com.iyysoft.msdp.dp.sys.entity.SysUser">
+		SELECT * FROM sys_user WHERE idno =#{idno}
+	</select>
+
+	<!--根据身份证 查询对应的用户信息-->
+	<update id="updateUserRealStatus">
+		UPDATE sys_user a
+		SET a.real_status = '1'
+		WHERE
+			a.user_id = #{userId};
+	</update>
+
+	<!--修改证件号和姓名-->
+	<update id="updateUserIdnoName">
+		UPDATE sys_user a
+		SET a.user_name = #{userName},a.idno = #{idno}
+		WHERE
+			a.user_id = #{userId};
+	</update>
+
+
+	<select id="selectSysuserByMobile" resultType="com.iyysoft.msdp.dp.sys.entity.SysUser">
+		SELECT * FROM `sys_user` WHERE mobile = #{mobile};
+	</select>
+
+	<update id="resetMobile">
+		update sys_user set mobile = #{mobile},phone = #{phone},update_time = #{updateTime}
+		WHERE user_id = #{userId}
+	</update>
+</mapper>
