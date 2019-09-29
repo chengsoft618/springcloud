@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iyysoft.msdp.dp.sys.mapper.SysUserThirdMapper">
+
+  <resultMap id="userThirdMap" type="com.iyysoft.msdp.dp.sys.entity.SysUserThird">
+                  <id property="thirdId" column="third_id"/>
+                        <result property="openId" column="open_id"/>
+                        <result property="userId" column="user_id"/>
+                        <result property="apikey" column="apikey"/>
+                        <result property="device" column="device"/>
+                        <result property="deviceos" column="deviceos"/>
+                        <result property="froms" column="froms"/>
+                        <result property="version" column="version"/>
+                        <result property="token" column="token"/>
+                        <result property="ipaddr" column="ipaddr"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="updateTime" column="update_time"/>
+            </resultMap>
+
+
+    <!--删除已绑定记录-->
+    <update id="removeOpenId">
+		delete from sys_user_third WHERE third_id=#{thirdId} and open_id=#{openId};
+	</update>
+</mapper>

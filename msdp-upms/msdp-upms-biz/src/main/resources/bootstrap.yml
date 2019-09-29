@@ -1,0 +1,33 @@
+server:
+  port: 6001
+spring:
+  messages:
+    encoding: UTF-8
+    basename: i18n.messages
+  application:
+    name: @artifactId@
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: msdp-config
+  autoconfigure:
+    exclude: org.springframework.cloud.gateway.config.GatewayAutoConfiguration,org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfiguration
+  profiles:
+    active: @profile.active@
+
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://msdp:msdp.123@${EUREKA-HOST:msdp-eureka}:${EUREKA-PORT:5001}/eureka/
+    #register-with-eureka: false
+#logging:
+      ##  level:
+      ##    root: debug
