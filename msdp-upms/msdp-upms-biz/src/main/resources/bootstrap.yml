@@ -26,7 +26,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://msdp:msdp.123@${EUREKA-HOST:msdp-eureka}:${EUREKA-PORT:5002}/eureka/
+      defaultZone: http://msdp:msdp.123@${EUREKA-HOST:msdp-eureka}:${EUREKA-PORT:5001}/eureka/
     #register-with-eureka: false
 #logging:
       ##  level:
