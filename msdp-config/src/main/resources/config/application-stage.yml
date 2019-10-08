@@ -8,7 +8,7 @@ AUTH-HOST: msdp-auth
 MYSQL-HOST: msdp-mysql
 MYSQL-USER: t_upm
 MYSQL-PWD: base.C1upm
-MYSQL-PORT: 4306
+MYSQL-PORT: 9306
 # 文件系统 (提供测试环境，不要乱传)
 minio:
   url: http://minio.msdp.com:9000

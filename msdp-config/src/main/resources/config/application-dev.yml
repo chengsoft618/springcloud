@@ -9,7 +9,7 @@ AUTH-HOST: msdp-auth
 MYSQL-HOST: msdp-mysql
 #MYSQL-USER: t_upm
 #MYSQL-PWD: base.C1upm
-#MYSQL-PORT: 4306
+#MYSQL-PORT: 9306
 ZOOKEEPER-HOST: msdp-zookeeper
 ZOOKEEPER-PORT: 2181
 TX-MGR-HOST: msdp-tx-manager

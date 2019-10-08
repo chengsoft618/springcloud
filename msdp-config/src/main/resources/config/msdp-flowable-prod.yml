@@ -40,7 +40,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ms_act
     password: base.C1act
-    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:ms_act_flowable6}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
 
 #flowable:
 #  activity-font-name: 宋体

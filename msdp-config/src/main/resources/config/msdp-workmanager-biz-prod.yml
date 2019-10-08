@@ -29,49 +29,49 @@ spring:
         master_:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         master_user:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         master_salary:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         master_mohurd:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_user:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_salary:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_mohurd:  #使用vip 数据源
           username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
           password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
