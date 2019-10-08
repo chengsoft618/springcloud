@@ -16,5 +16,6 @@
     <modules>
 
         <module>msdp-activiti</module>
+
     </modules>
 </project>
