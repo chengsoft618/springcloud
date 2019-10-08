@@ -19,6 +19,7 @@ spring:
         native:
           search-locations: classpath:/config/,classpath:/edu/
 
+
 # 注册中心配置
 eureka:
   instance:
@@ -27,6 +28,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://msdp:msdp.123@${EUREKA-HOST:msdp-eureka}:${EUREKA-PORT:5002}/eureka/
+
 
 # 暴露监控端点
 management:
