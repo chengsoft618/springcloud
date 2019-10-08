@@ -14,8 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-
         <module>msdp-activiti</module>
-
+        <module>msdp-codegen</module>
     </modules>
 </project>

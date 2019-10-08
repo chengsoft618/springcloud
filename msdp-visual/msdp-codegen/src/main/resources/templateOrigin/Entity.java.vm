@@ -1,0 +1,40 @@
+package ${package}.${moduleName}.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+    #if(${hasBigDecimal})
+    import java.math.BigDecimal;
+    #end
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+@TableName("${tableName}" )
+@EqualsAndHashCode(callSuper = true)
+public class ${className} extends Model<${className}> {
+
+#foreach ($column in $columns)
+/**
+ * $column.comments
+ */
+    #if($column.columnName == $pk.columnName)
+    @TableId(type = IdType.UUID)
+    #end
+    #if($column.isNullable == $pk.isNullable  && $column.isNullable == 'NO' )
+    @NotBlank(message = "【${column.comments}】不能为空." )
+    #end
+
+private $column.attrType $column.lowerAttrName;
+#end
+
+}
