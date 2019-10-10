@@ -40,6 +40,7 @@ spring:
           type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
         #oracle:
+
 # 文件系统 (提供测试环境，不要乱传)
 minio:
   url: http://minio.msdp.com:9000
