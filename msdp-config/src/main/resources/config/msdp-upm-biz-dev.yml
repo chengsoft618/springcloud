@@ -27,15 +27,15 @@ spring:
       primary: master_
       datasource:
         master_:  #使用vip 数据源
-          username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
-          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: t_upm
+          password: base.C1upm
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_:  #使用vip 数据源
-          username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
-          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: t_upm
+          password: base.C1upm
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:4311}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
