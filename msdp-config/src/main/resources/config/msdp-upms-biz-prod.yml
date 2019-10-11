@@ -36,13 +36,13 @@ spring:
       datasource:
         master_:  #使用vip 数据源
           username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
-          password: base.C1upm
+          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
           url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_:  #使用vip 数据源
           username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
-          password: base.C1upm
+          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
           url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
@@ -50,16 +50,15 @@ spring:
         #oracle:
 
 # 文件系统 (提供测试环境，不要乱传)#msdp.file123
-
 minio:
   url: http://minio.msdp.com:9000
   access-key: msdp.file
   secret-key: msdp.file123
 
-# Logger Config
-logging:
-  level:
-    com.iyysoft.msdp.dp.sys: debug
+## Logger Config
+#logging:
+#  level:
+#    com.iyysoft.msdp.dp.sys: debug
 
 # 租户表维护
 iyysoft:

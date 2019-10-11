@@ -3,8 +3,8 @@
 security:
   oauth2:
     client:
-      client-id: ENC(i3T/iK350fKugdHh4peeZEpMzdT8goau)    #msdp.app
-      client-secret: ENC(i3T/iK350fKugdHh4peeZEpMzdT8goau)    #msdp.app
+      client-id: ENC(BsKbGmys/fkTFXmG/IiI7unj+IO7sRzU)    #msdp.app
+      client-secret: ENC(BsKbGmys/fkTFXmG/IiI7unj+IO7sRzU)    #msdp.app
       scope: server
       # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
       ignore-urls:
@@ -28,15 +28,15 @@ spring:
       primary: master_
       datasource:
         master_:  #使用vip 数据源
-          username: ENC(nL0O1SC6BlevrpbCLmuHjh7jVYzOlhTy)
-          password: ENC(9i8yu9PnpN3+Kn1dXvmH2iYPje/rPbMX)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:ms_app}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: ENC(MGfc30MwmdNOAYjHswrqzg==)
+          password: ENC(LY5B+O1cuhNe1WSgQSe7QxtkXIulK1Xy)
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:ms_app}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         slave_:  #使用vip 数据源
-          username: ENC(nL0O1SC6BlevrpbCLmuHjh7jVYzOlhTy)
-          password: ENC(9i8yu9PnpN3+Kn1dXvmH2iYPje/rPbMX)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:ms_app}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: ENC(MGfc30MwmdNOAYjHswrqzg==)
+          password: ENC(LY5B+O1cuhNe1WSgQSe7QxtkXIulK1Xy)
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:ms_app}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
@@ -46,11 +46,6 @@ minio:
   url: http://minio.msdp.com:9000
   access-key: ENC(VB7z4nTk65ZNG5zT4t+w/iR97K8RsTt0)
   secret-key: ENC(dJ6vHXQLIwVmW0HT85Dya03VSFsVWy4E)
-
-# Logger Config
-logging:
-  level:
-    com.iyysoft.msdp.dp.sys: debug
 
 # 租户表维护
 iyysoft:
