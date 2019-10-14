@@ -21,6 +21,7 @@
         <mybatis-plus.version>3.1.2</mybatis-plus.version>
         <mybatis-plus-sharding.version>2.5.5</mybatis-plus-sharding.version>
         <mysql.connector.version>8.0.13</mysql.connector.version>
+        <sqlserver.version>4.0</sqlserver.version>
         <swagger.core.version>1.5.22</swagger.core.version>
         <jasypt.version>2.1.1</jasypt.version>
         <liquibase.version>3.8.0</liquibase.version>
@@ -115,7 +116,16 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.version}</version>
+                <scope>test</scope>
             </dependency>
+            <!--mysql 驱动-->
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${sqlserver.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!--jasypt配置文件加解密-->
             <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>

@@ -32,50 +32,56 @@ spring:
           url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
-        master_user:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        master_salary:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        master_mohurd:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        slave_:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        slave_user:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        slave_salary:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        slave_mohurd:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
+        #        master_user:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        master_salary:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        master_mohurd:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        slave_:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        slave_user:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        slave_salary:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
+        #        slave_mohurd:  #使用vip 数据源
+        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
+        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
+        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+        #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
         #oracle:
+        sqlserver:
+          username: sa_chim
+          password: Winshe87778111
+          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform_bk
+          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+          type: com.zaxxer.hikari.HikariDataSource
 # 文件系统 (提供测试环境，不要乱传)
 minio:
   url: http://minio.msdp.com:9000
