@@ -42,10 +42,10 @@ spring:
         #postgresql:
         #oracle:
   rabbitmq:
-    host: 47.97.20.197
-    port: 5677
-    username: admin
-    password: mq20180809$&
+    host: 119.3.109.7
+    port: 5672
+    username: saasuser
+    password: mq_Winshe2019
     connection-timeout: 30000
     template:
       receive-timeout: 3000
