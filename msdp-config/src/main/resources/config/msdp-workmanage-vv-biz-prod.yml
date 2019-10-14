@@ -1,10 +1,9 @@
 ## spring security 配置
-##  mTmO4HgOw7kP33Z77O841Q==      ENC(mTmO4HgOw7kP33Z77O841Q==)
 security:
   oauth2:
     client:
-      client-id: msdp.workmanager      #msdp.app
-      client-secret: msdp.workmanager  #msdp.app
+      client-id: msdp.workmanager
+      client-secret: msdp.workmanager
       scope: server
       # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
       ignore-urls:
@@ -17,8 +16,18 @@ security:
         - /reg/**
         - /log/save
         - /v1/**
+        - /v2/**
         - /user/userId/**
         - /mobile/sendsms/**
+
+# 数据源
+#spring:
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: ${MYSQL-USER:t_upm}
+#    password: ${MYSQL-PWD:base.C1upm}
+#    url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
 
 # 数据源
 spring:
@@ -27,71 +36,30 @@ spring:
       primary: master_
       datasource:
         master_:  #使用vip 数据源
-          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
+          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
-        #        master_user:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        master_salary:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        master_mohurd:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        slave_:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        slave_user:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-user}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        slave_salary:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-salary}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
-        #        slave_mohurd:  #使用vip 数据源
-        #          username: ENC(QMHDxveqa+UGa8u/fbsay7kvOGJ6PC2f)
-        #          password: ENC(+UFYLP4qyzTE6YHQspJUJeVMjpsiPwTF)
-        #          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:jtg-worker-manage-mohurd}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-        #          driver-class-name: com.mysql.cj.jdbc.Driver
-        #          type: com.zaxxer.hikari.HikariDataSource
+        slave_:  #使用vip 数据源
+          username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
+          password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
+          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
         #oracle:
-        sqlserver:
-          username: sa_chim
-          password: Winshe87778111
-          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform_bk
-          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-          type: com.zaxxer.hikari.HikariDataSource
-# 文件系统 (提供测试环境，不要乱传)
+
+# 文件系统 (提供测试环境，不要乱传)#msdp.file123
 minio:
   url: http://minio.msdp.com:9000
-  access-key: ENC(VB7z4nTk65ZNG5zT4t+w/iR97K8RsTt0) #msdp.file
-  secret-key: ENC(dJ6vHXQLIwVmW0HT85Dya03VSFsVWy4E) #msdp.file123
+  access-key: msdp.file
+  secret-key: msdp.file123
 
-# Logger Config
-logging:
-  level:
-    com.iyysoft.msdp.dp.sys: debug
+## Logger Config
+#logging:
+#  level:
+#    com.iyysoft.msdp.dp.sys: debug
 
 # 租户表维护
 iyysoft:
@@ -107,4 +75,4 @@ iyysoft:
       - user_third
       - sys_dict
       - sys_dict_item
-      - log
+      - sys_log
