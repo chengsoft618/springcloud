@@ -43,7 +43,7 @@ spring:
         #oracle:
   rabbitmq:
     host: 47.97.20.197
-    port: 5672
+    port: 5677
     username: admin
     password: mq20180809$&
     connection-timeout: 30000
