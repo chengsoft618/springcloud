@@ -41,6 +41,19 @@ spring:
           type: com.zaxxer.hikari.HikariDataSource
         #postgresql:
         #oracle:
+  rabbitmq:
+    host: 47.97.20.197
+    port: 5672
+    username: admin
+    password: mq20180809$&
+    connection-timeout: 30000
+    template:
+      receive-timeout: 3000
+    cache:
+      channel:
+        size: 100
+    virtual-host: SaaS
+
 # 文件系统 (提供测试环境，不要乱传)  #msdp.file  #msdp.file123
 minio:
   url: http://minio.msdp.com:9000
