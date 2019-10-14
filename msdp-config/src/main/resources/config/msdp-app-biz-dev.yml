@@ -44,8 +44,8 @@ spring:
   rabbitmq:
     host: 119.3.109.7
     port: 5672
-    username: saasuser
-    password: mq_Winshe2019
+    username: msdp-app
+    password: winshe123
     connection-timeout: 30000
     template:
       receive-timeout: 3000
