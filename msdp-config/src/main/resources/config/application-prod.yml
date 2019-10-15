@@ -33,7 +33,7 @@ spring:
     password: msdp.redis123
     host: ${REDIS-HOST:msdp-redis}
     port: ${REDIS-PORT:9005}
-    database: 1
+    database: 0
   # zipkin
   zipkin:
     enabled: true
