@@ -5,4 +5,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ENC(w7Wf2el9+CdHNglsKc2SKA==)
     password: ENC(tExkneOk2oveLQsQ473T7AL+dJi483eU)
-    url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:3306}/${MYSQL-DB:t_upm}?characterEncoding=utf8&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+  #服务端配置跨域
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowCredentials: true
+            exposedHeaders: "Content-Disposition,Content-Type,Cache-Control"
+            allowedHeaders: "*"
+            allowedOrigins: "*"
+            allowedMethods: "*"
