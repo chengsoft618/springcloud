@@ -19,6 +19,7 @@ security:
         - /v2/**
         - /user/userId/**
         - /mobile/sendsms/**
+        - /**
 
 # 数据源
 #spring:
@@ -48,8 +49,8 @@ spring:
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         sqlserver:
-          username: sa_baike
-          password: ysbaike-_Winshe
+          username: wpbk_sa_read
+          password: ws_WinsheRDSbk
           url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform_bk;integratedSecurity=false;
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           #username: sa_chim

@@ -19,6 +19,7 @@ security:
         - /v1/**
         - /user/userId/**
         - /mobile/sendsms/**
+        - /**
 
 # 数据源
 spring:
@@ -77,8 +78,8 @@ spring:
         #postgresql:
         #oracle:
         sqlserver:
-          username: sa_chim
-          password: Winshe87778111
+          username: wpbk_sa_read
+          password: ws_WinsheRDSbk
           url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform_bk
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           type: com.zaxxer.hikari.HikariDataSource
