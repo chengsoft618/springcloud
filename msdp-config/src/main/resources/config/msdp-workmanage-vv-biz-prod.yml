@@ -32,27 +32,6 @@ security:
 
 # 数据源
 spring:
-  datasource:
-    dynamic:
-      primary: master_
-      datasource:
-        master_:  #使用vip 数据源
-          username: ms_wkvv
-          password: msWKVV_123
-          url: jdbc:mysql://172.20.0.6:3306/${MYSQL-DB:ms_wkvv}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
-        sqlserver:
-          username: wp_sa_read
-          password: ys_WinsheRDS
-          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform;integratedSecurity=false;
-          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-          #username: sa_chim
-          #password: Winshe87778111
-          type: com.zaxxer.hikari.HikariDataSource
-        #postgresql:
-        #oracle:
-
   rabbitmq:
     host: 47.97.20.197
     port: 5677
@@ -86,6 +65,24 @@ spring:
           type: direct
           ignoreDeclarationExceptions:
         key: wkAttendResultKey
+  datasource:
+    dynamic:
+      primary: master_
+      datasource:
+        master_:  #使用vip 数据源
+          username: ms_wkvv
+          password: msWKVV_123
+          url: jdbc:mysql://172.20.0.6:3306/ms_wkvv?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+        sqlserver:
+          username: wp_sa_read
+          password: ys_WinsheRDS
+          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform;integratedSecurity=false;
+          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+          #username: sa_chim
+          #password: Winshe87778111
+          type: com.zaxxer.hikari.HikariDataSource
 
 config:
   wkvv:
