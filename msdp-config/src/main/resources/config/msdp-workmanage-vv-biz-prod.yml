@@ -42,12 +42,6 @@ spring:
           url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_wkvv}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
-        slave_:  #使用vip 数据源
-          username: db_manager
-          password: 123!QWEasd
-          url: jdbc:mysql://${MYSQL-HOST:read-msdp-mysql}:${MYSQL-PORT:9306}/${MYSQL-DB:ms_wkvv}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.zaxxer.hikari.HikariDataSource
         sqlserver:
           username: wp_sa_read
           password: ys_WinsheRDS
