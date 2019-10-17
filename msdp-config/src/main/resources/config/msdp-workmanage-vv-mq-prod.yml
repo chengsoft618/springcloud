@@ -72,7 +72,7 @@ spring:
         master_:  #使用vip 数据源
           username: ms_wkvv
           password: msWKVV_123
-          url: jdbc:mysql://localhost:4306/ms_wkvv?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          url: jdbc:mysql://172.20.0.6:3306/ms_wkvv?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         sqlserver:
