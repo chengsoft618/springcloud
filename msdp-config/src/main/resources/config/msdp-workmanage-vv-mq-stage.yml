@@ -35,15 +35,15 @@ spring:
   rabbitmq:
     host: 119.3.109.7
     port: 5672
-    username: snap
-    password: snap123
+    username: wkvv
+    password: wkvv123
     connection-timeout: 30000
     template:
       receive-timeout: 3000
     cache:
       channel:
         size: 100
-    virtual-host: SaaS
+    virtual-host: msdp
     listener:
       wkAttend:
         queue:
