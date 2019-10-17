@@ -33,17 +33,17 @@ ignore:
 # 数据源
 spring:
   rabbitmq:
-    host: 119.3.109.7
-    port: 5672
-    username: snap
-    password: snap123
+    host: 47.97.20.197
+    port: 5677
+    username: wkvv
+    password: wkvv123
     connection-timeout: 30000
     template:
       receive-timeout: 3000
     cache:
       channel:
         size: 100
-    virtual-host: SaaS
+    virtual-host: msdp
     listener:
       wkAttend:
         queue:
@@ -70,15 +70,15 @@ spring:
       primary: master_
       datasource:
         master_:  #使用vip 数据源
-          username: db_manager
-          password: 123!QWEasd
-          url: jdbc:mysql://119.3.111.107:9306/${MYSQL-DB:ms_wkvv}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: wkvv
+          password: msWKVV_123
+          url: jdbc:mysql://${MYSQL-HOST:msdp-mysql}:${MYSQL-PORT:4306}/${MYSQL-DB:ms_wkvv}?characterEncoding=utf8&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
           driver-class-name: com.mysql.cj.jdbc.Driver
           type: com.zaxxer.hikari.HikariDataSource
         sqlserver:
           username: wp_sa_read
           password: ys_WinsheRDS
-          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform_bk;integratedSecurity=false;
+          url: jdbc:sqlserver://rds5y5l2x7n04c5ez2l1o.sqlserver.rds.aliyuncs.com:3433;DatabaseName=winshe_platform;integratedSecurity=false;
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           #username: sa_chim
           #password: Winshe87778111
