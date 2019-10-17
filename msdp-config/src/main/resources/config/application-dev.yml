@@ -37,6 +37,7 @@ spring:
     port: ${REDIS-PORT:9005}
     # 连接超时时间（毫秒）
     timeout: 5000
+    database: 2
 
   # zipkin
   zipkin:
