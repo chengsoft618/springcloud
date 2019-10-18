@@ -1,5 +1,5 @@
 #公共变量
-env: prod
+env: dev
 REDIS-HOST: msdp-redis
 REDIS-PORT: 9005
 ZIPKIN-HOST: msdp-zipkin
