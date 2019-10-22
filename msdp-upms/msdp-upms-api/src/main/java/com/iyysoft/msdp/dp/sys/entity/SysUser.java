@@ -48,48 +48,33 @@ public class SysUser implements Serializable {
     @JsonIgnore
     private String salt;
     /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
-    /**
-     * 0-正常，1-删除
-     */
-    @TableLogic
-    private String delFlag;
-
-    /**
-     * 锁定标记
-     */
-    private String lockFlag;
-    /**
      * 手机
      */
     private String mobile;
-
     /**
      * 电话
      */
     private String phone;
-
     /**
      * Email
      */
     private String email;
-
+    /**
+     * 头像
+     */
+    private String avatar;
+    /**
+     * 组织机构ID
+     */
+    private String deptId;
     /**
      * 用户呢称
      */
     private String userNick;
-
     /**
      * 生日
      */
     private LocalDate birthday;
-
     /**
      * 性别
      */
@@ -99,17 +84,23 @@ public class SysUser implements Serializable {
      * 用户区域
      */
     private String areaId;
-
     /**
-     * 头像
+     * 创建时间
      */
-    private String avatar;
-
+    private LocalDateTime createTime;
     /**
-     * 组织机构ID
+     * 修改时间
      */
-    private String deptId;
-
+    private LocalDateTime updateTime;
+    /**
+     * 锁定标记
+     */
+    private String lockFlag;
+    /**
+     * 0-正常，1-删除
+     */
+    @TableLogic
+    private String delFlag;
     /**
      * 租户ID
      */
@@ -129,21 +120,34 @@ public class SysUser implements Serializable {
      * 证件类型
      */
     private String idnoType;
-
-    /**
-     * 姓
-     */
-    private String lastName;
-
-    /**
-     * 名
-     */
-    private String firstName;
-
     /**
      * 推送模板openid
      */
     private String tempOpenId;
+    /**
+     * 姓
+     */
+    private String lastName;
+    /**
+     * 名
+     */
+    private String firstName;
+    /**
+     * 实名照片
+     */
+    private String realPhoto;
+    /**
+     *身份证正面
+     */
+    private String idFront;
+    /**
+     *身份证反面
+     */
+    private String idBack;
+
+
+
+
 
     public SysUser(SysUserAllDto sysUserAllDto) {
         //手机号

@@ -12,18 +12,27 @@
 		<result column="mobile" property="mobile"/>
 		<result column="phone" property="phone"/>
 		<result column="email" property="email"/>
-		<result column="user_nick" property="userNick"/>
-		<result column="birthday" property="birthday"/>
-		<result column="sex" property="sex"/>
-		<result column="area_id" property="areaId"/>
-		<result column="avatar" property="avatar"/>
-		<result column="ucreate_time" property="createTime"/>
-		<result column="update_time" property="updateTime"/>
-		<result column="lock_flag" property="lockFlag"/>
-		<result column="del_flag" property="delFlag"/>
-		<result column="deptId" property="deptId"/>
-		<result column="tenantId" property="tenantId"/>
+        <result column="avatar" property="avatar"/>
+        <result column="deptId" property="deptId"/>
+        <result column="user_nick" property="userNick"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="area_id" property="areaId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="lock_flag" property="lockFlag"/>
+        <result column="del_flag" property="delFlag"/>
+		<result column="tenant_id" property="tenantId"/>
 		<result column="temp_open_id" property="tempOpenId"/>
+		<result column="idno" property="idno"/>
+		<result column="real_status" property="realStatus"/>
+		<result column="idno_type" property="idnoType"/>
+		<result column="temp_open_id" property="tempOpenId"/>
+		<result column="last_name" property="lastName"/>
+		<result column="first_name" property="firstName"/>
+		<result column="real_photo" property="realPhoto"/>
+		<result column="id_front" property="idFront"/>
+		<result column="id_back" property="idBack"/>
 	</resultMap>
 
 	<!-- userVo结果集 -->
