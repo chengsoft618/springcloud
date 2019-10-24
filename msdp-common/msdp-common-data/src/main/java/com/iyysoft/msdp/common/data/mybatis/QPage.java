@@ -12,7 +12,7 @@ public class QPage implements Serializable {
     private Long pageNum = 0L;
 
     @ApiParam(value = "每页数量", required = false, example = "")
-    private Long pageSize;
+    private Long pageSize = 10L;
 
     @ApiParam(value = "排序字段", required = false, example = "")
     private String[] ascs;
@@ -25,6 +25,10 @@ public class QPage implements Serializable {
 
     @ApiParam(value = "", required = false, example = "", hidden = true)
     private boolean isSearchCount;
+
+    //limit begin,end
+    private Long begin;
+    private Long length;
 
     public QPage() {
         this.pageNum = 1L;
@@ -89,5 +93,15 @@ public class QPage implements Serializable {
         this.pageSize = pageSize;
     }
 
+    public Long getBegin() {
+        if (pageNum <= 0L ){
+            return 0L;
+        }else{
+            return (pageNum -1)*pageSize;
+        }
+    }
 
+    public Long getLength() {
+        return pageSize;
+    }
 }

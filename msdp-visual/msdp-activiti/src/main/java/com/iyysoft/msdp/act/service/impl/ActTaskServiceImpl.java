@@ -13,7 +13,7 @@ import com.iyysoft.msdp.act.service.ActTaskService;
 import com.iyysoft.msdp.common.core.constant.PaginationConstants;
 import com.iyysoft.msdp.common.core.constant.enums.TaskStatusEnum;
 import com.iyysoft.msdp.common.data.tenant.TenantContextHolder;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.bpmn.model.BpmnModel;
@@ -130,7 +130,7 @@ public class ActTaskServiceImpl implements ActTaskService {
                 .singleResult();
 
         String processInstanceId = task.getProcessInstanceId();
-        Authentication.setAuthenticatedUserId(MsdpSecurityUtils.getUser().getUsername());
+        Authentication.setAuthenticatedUserId(SecurityUtils.getUser().getUsername());
         taskService.addComment(taskId, processInstanceId, message);
 
         Map<String, Object> variables = new HashMap<>(1);

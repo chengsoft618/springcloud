@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import com.iyysoft.msdp.dp.sys.enums.IdTypeEnum;
 import com.iyysoft.msdp.dp.sys.service.*;
 import com.iyysoft.msdp.dp.sys.vo.MenuVo;
@@ -303,7 +303,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * @return 子组织机构列表
      */
     private List<String> getChildSysDepts() {
-        String orgId = MsdpSecurityUtils.getUser().getDeptId();
+        String orgId = SecurityUtils.getUser().getDeptId();
         //获取当前组织机构的子组织机构
         return orgRelationService
                 .list(Wrappers.<SysDeptRelation>query().lambda()

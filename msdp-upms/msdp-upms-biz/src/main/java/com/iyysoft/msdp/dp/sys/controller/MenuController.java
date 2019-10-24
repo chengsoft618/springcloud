@@ -1,7 +1,7 @@
 package com.iyysoft.msdp.dp.sys.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import com.iyysoft.msdp.dp.sys.dto.MenuTree;
 import com.iyysoft.msdp.dp.sys.entity.SysMenu;
 import com.iyysoft.msdp.dp.sys.vo.MenuVo;
@@ -42,7 +42,7 @@ public class MenuController {
     public R getUserMenu() {
         // 获取符合条件的菜单
         Set<MenuVo> all = new HashSet<>();
-        MsdpSecurityUtils.getRoles()
+        SecurityUtils.getRoles()
                 .forEach(roleId -> all.addAll(sysMenuService.findMenuByRoleId(roleId)));
         List<MenuTree> menuTreeList = all.stream()
                 .filter(menuVo -> CommonConstants.MENU.equals(menuVo.getType()))

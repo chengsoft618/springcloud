@@ -19,7 +19,7 @@ import java.util.List;
  * @author L.cm
  */
 @UtilityClass
-public class MsdpSecurityUtils {
+public class SecurityUtils {
     /**
      * 获取Authentication
      */

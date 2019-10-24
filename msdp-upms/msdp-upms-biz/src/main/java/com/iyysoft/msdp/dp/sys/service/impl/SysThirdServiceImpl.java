@@ -2,7 +2,7 @@ package com.iyysoft.msdp.dp.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import com.iyysoft.msdp.dp.sys.dto.UserInfo;
 import com.iyysoft.msdp.dp.sys.entity.SysThird;
 import com.iyysoft.msdp.dp.sys.entity.SysUser;
@@ -43,7 +43,7 @@ public class SysThirdServiceImpl extends ServiceImpl<SysThirdMapper, SysThird> i
     public Boolean bindThird(String type, String code) {
         String identify = loginHandlerMap.get(type).identify(code);
 
-        SysUser sysUser = sysUserMapper.selectById(MsdpSecurityUtils.getUser().getUserId());
+        SysUser sysUser = sysUserMapper.selectById(SecurityUtils.getUser().getUserId());
         UserThird userThird = new UserThird();
         userThird.setUserId(sysUser.getUserId());
         userThird.setThirdId("1");

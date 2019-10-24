@@ -10,7 +10,7 @@ import com.iyysoft.msdp.common.core.constant.SecurityConstants;
 import com.iyysoft.msdp.common.core.exception.CheckedException;
 import com.iyysoft.msdp.common.data.enums.DataScopeTypeEnum;
 import com.iyysoft.msdp.common.security.service.MsdpUser;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -67,7 +67,7 @@ public class DataScopeInterceptor extends AbstractSqlParserHandler implements In
         List<String> orgIds = dataScope.getDeptIds();
         // 优先获取赋值数据
         if (CollUtil.isEmpty(orgIds)) {
-            MsdpUser user = MsdpSecurityUtils.getUser();
+            MsdpUser user = SecurityUtils.getUser();
             if (user == null) {
                 throw new CheckedException("auto datascope, set up security details true");
             }

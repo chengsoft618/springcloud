@@ -95,5 +95,9 @@ public class UserInfoVo implements Serializable {
      * 模板openId
      */
     private String tempOpenId;
+    /**
+     * 实名照片
+     */
+    private String realPhoto;
 
 }

@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import com.iyysoft.msdp.dp.sys.entity.SysRole;
 import com.iyysoft.msdp.dp.sys.entity.SysThird;
 import com.iyysoft.msdp.dp.sys.entity.SysUser;
@@ -32,7 +32,6 @@ import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -73,7 +72,7 @@ public class UserController {
     @GetMapping(value = {"/info"})
     @ApiOperation(value = "获取当前用户全部信息")
     public R<UserInfo> info() {
-        String userId = MsdpSecurityUtils.getUser().getUserId();
+        String userId = SecurityUtils.getUser().getUserId();
         SysUser user = userService.getOne(Wrappers.<SysUser>query()
                 .lambda().eq(SysUser::getUserId, userId));
         if (user == null) {
@@ -90,7 +89,7 @@ public class UserController {
     @GetMapping(value = {"/userInfo"})
     @ApiOperation(value = "获取当前用户基本信息")
     public R<UserInfoVo> userInfo() {
-        String userId = MsdpSecurityUtils.getUser().getUserId();
+        String userId = SecurityUtils.getUser().getUserId();
         SysUser user = userService.getOne(Wrappers.<SysUser>query()
                 .lambda().eq(SysUser::getUserId, userId));
         if (user == null) {
@@ -111,7 +110,7 @@ public class UserController {
     public R<String> getRealStatus(@ApiParam("'0'未认证 '1' 已认证 '2' 待认证 ")
                                    @RequestParam(required = false) String userId) {
         if (userId == null) {
-            userId = MsdpSecurityUtils.getUser().getUserId();
+            userId = SecurityUtils.getUser().getUserId();
         }
         log.debug("judge user id {} real status", userId);
         SysUser user = userService.getOne(Wrappers.<SysUser>query()
@@ -609,7 +608,7 @@ public class UserController {
     public R updateRealStatus() {
         SysUser sysUser = new SysUser();
         sysUser.setRealStatus("1");
-        return new R<>(this.userService.update(sysUser, Wrappers.<SysUser>query().lambda().eq(SysUser::getUserId, MsdpSecurityUtils.getUser().getUserId())));
+        return new R<>(this.userService.update(sysUser, Wrappers.<SysUser>query().lambda().eq(SysUser::getUserId, SecurityUtils.getUser().getUserId())));
     }
 
     /**
@@ -623,7 +622,7 @@ public class UserController {
         sysUser.setRealStatus("1");
         sysUser.setIdno(userRealStatusDto.getNumber());
         sysUser.setUserName(userRealStatusDto.getUserName());
-        return new R<>(this.userService.update(sysUser, Wrappers.<SysUser>query().lambda().eq(SysUser::getUserId, MsdpSecurityUtils.getUser().getUserId())));
+        return new R<>(this.userService.update(sysUser, Wrappers.<SysUser>query().lambda().eq(SysUser::getUserId, SecurityUtils.getUser().getUserId())));
     }
 
     /**

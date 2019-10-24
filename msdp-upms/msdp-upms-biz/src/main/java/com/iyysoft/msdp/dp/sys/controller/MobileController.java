@@ -2,7 +2,7 @@ package com.iyysoft.msdp.dp.sys.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import com.iyysoft.msdp.dp.sys.dto.MobileModifyDto;
 import com.iyysoft.msdp.dp.sys.entity.SysUser;
 import com.iyysoft.msdp.dp.sys.service.MobileService;
@@ -85,7 +85,7 @@ public class MobileController {
     public R<Integer> modifyMobile(@Valid @ApiParam("实体") @RequestBody MobileModifyDto modifyDto) {
         String mobile = modifyDto.getMobile();
         String code = modifyDto.getCode();
-        MsdpUser currentUser = MsdpSecurityUtils.getUser();
+        MsdpUser currentUser = SecurityUtils.getUser();
         if (currentUser == null) {
             return new R<>(0, REnum.CODE.FAILED);
         }

@@ -4,7 +4,7 @@ import cn.hutool.core.io.IoUtil;
 import com.iyysoft.msdp.act.dto.LeaveBillDto;
 import com.iyysoft.msdp.act.service.ActTaskService;
 import com.iyysoft.msdp.common.core.util.R;
-import com.iyysoft.msdp.common.security.util.MsdpSecurityUtils;
+import com.iyysoft.msdp.common.security.util.SecurityUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -28,7 +28,7 @@ public class TaskController {
 
     @GetMapping("/todo")
     public R todo(@RequestParam Map<String, Object> params) {
-        return new R<>(actTaskService.getTaskByName(params, MsdpSecurityUtils.getUser().getUsername()));
+        return new R<>(actTaskService.getTaskByName(params, SecurityUtils.getUser().getUsername()));
     }
 
     @GetMapping("/{id}")
