@@ -3,6 +3,7 @@ package com.iyysoft.msdp.common.data.mybatis;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.core.parser.ISqlParser;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
@@ -91,5 +92,14 @@ public class MybatisPlusConfig {
     @Profile({"dev","test"})// 设置 dev test 环境开启
     public PerformanceInterceptor performanceInterceptor() {
         return new PerformanceInterceptor();
+    }
+
+    /**
+     * 乐观锁插件
+     * @return
+     */
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 }

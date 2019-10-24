@@ -31,6 +31,7 @@
         <module>msdp-common</module>
         <module>msdp-visual</module>
         <module>msdp-upms</module>
+        <module>msdp-app</module>
 
     </modules>
 

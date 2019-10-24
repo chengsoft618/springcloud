@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iyysoft.msdp.dp.app.mapper.SnapLikeRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iyysoft.msdp.dp.app.entity.snap.SnapLikeRecord">
+        <id column="sid" property="sid" />
+        <result column="shot_sid" property="shotSid" />
+        <result column="nick_name" property="nickName" />
+        <result column="create_id" property="createId" />
+        <result column="create_date" property="createDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sid, shot_sid, create_id, create_date
+    </sql>
+
+</mapper>

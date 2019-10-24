@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iyysoft.msdp.dp.app.mapper.SnapShotMapper">
+
+    <resultMap id="snapShotMap" type="com.iyysoft.msdp.dp.app.entity.snap.SnapShot">
+        <id property="sid" column="sid"/>
+        <result property="content" column="content"/>
+        <result property="medianum" column="medianum"/>
+        <result property="likenum" column="likenum"/>
+        <result property="likenumf" column="likenumf"/>
+        <result property="commnum" column="commnum"/>
+        <result property="address" column="address"/>
+        <result property="lng" column="lng"/>
+        <result property="lat" column="lat"/>
+        <result property="check" column="check"/>
+        <result property="status" column="status"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="tag" column="tag"/>
+        <result property="createId" column="create_id"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateId" column="update_id"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="version" column="version"/>
+    </resultMap>
+
+    <!--管理端的-->
+    <resultMap id="backMap" type="com.iyysoft.msdp.dp.app.entity.snap.SnapShot" extends="snapShotMap">
+        <association property="snapUser" javaType="com.iyysoft.msdp.dp.app.entity.snap.SnapUser" columnPrefix="su_">
+            <id property="sid" column="sid"/>
+            <result property="userId" column="user_id"/>
+            <result property="nickName" column="nick_name"/>
+            <result property="status" column="status"/>
+            <result property="freeTime" column="free_time"/>
+            <result property="createId" column="create_id"/>
+            <result property="createDate" column="create_date"/>
+            <result property="updateId" column="update_id"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="version" column="version"/>
+            <result property="head" column="head"/>
+            <result property="phone" column="phone"/>
+            <result property="realName" column="real_name"/>
+            <result property="realPhoto" column="real_photo"/>
+        </association>
+    </resultMap>
+    <select id="selectBackShotList" resultMap="backMap">
+        SELECT
+        ss.sid, ss.content, ss.medianum ,ss.`check`, ss.`status`, ss.nick_name, ss.tag, ss.create_date,
+        su.sid as su_sid, su.phone AS su_phone
+        FROM snap_shot ss
+        INNER JOIN snap_user su ON su.user_id = ss.create_id
+        <if test="ew != null">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+    <select id="selectBackShotListByTag" resultMap="backMap">
+        SELECT
+        ss.sid, ss.content, ss.medianum ,ss.`check`, ss.`status`, ss.nick_name, ss.tag, ss.create_date,
+        su.sid as su_sid, su.phone AS su_phone
+        FROM snap_shot ss
+        INNER JOIN snap_shot_tag sst ON sst.shot_sid = ss.sid AND sst.tag = #{tag}
+        INNER JOIN snap_user su ON su.user_id = ss.create_id
+        <if test="ew != null">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+
+    <!--app端的-->
+    <resultMap id="appMap" type="com.iyysoft.msdp.dp.app.entity.snap.SnapShot" extends="snapShotMap">
+        <association property="snapUser" javaType="com.iyysoft.msdp.dp.app.entity.snap.SnapUser" columnPrefix="su_">
+            <id property="sid" column="sid"/>
+            <result property="userId" column="user_id"/>
+            <result property="nickName" column="nick_name"/>
+            <result property="status" column="status"/>
+            <result property="freeTime" column="free_time"/>
+            <result property="createId" column="create_id"/>
+            <result property="createDate" column="create_date"/>
+            <result property="updateId" column="update_id"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="version" column="version"/>
+            <result property="head" column="head"/>
+            <result property="phone" column="phone"/>
+            <result property="realName" column="real_name"/>
+            <result property="realPhoto" column="real_photo"/>
+        </association>
+        <association property="snapLikeRecord" javaType="com.iyysoft.msdp.dp.app.entity.snap.SnapLikeRecord" columnPrefix="slr_">
+            <id column="sid" property="sid" />
+            <result column="shot_sid" property="shotSid" />
+            <result column="nick_name" property="nickName" />
+            <result column="create_id" property="createId" />
+            <result column="create_date" property="createDate" />
+        </association>
+        <collection property="snapMediaList" ofType="com.iyysoft.msdp.dp.app.entity.snap.SnapMedia" columnPrefix="sm_">
+            <id property="sid" column="sid"/>
+            <result property="shotSid" column="shot_sid"/>
+            <result property="url" column="url"/>
+            <result property="hdUrl" column="hd_url"/>
+            <result property="createId" column="create_id"/>
+            <result property="createDate" column="create_date"/>
+            <result property="orders" column="orders"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAppShotList" resultMap="appMap">
+        SELECT
+        ss.sid, ss.content, ss.likenum,ss.likenumf, ss.commnum, ss.address, ss.nick_name, ss.tag, ss.create_id, ss.create_date, ss.orders,
+        sm.sid as sm_sid, sm.url as sm_url, sm.hd_url as sm_hd_url,
+        su.sid as su_sid, su.head AS su_head,
+        slr.sid as slr_sid
+        FROM (
+          SELECT
+          t.sid, t.content, t.likenum, t.likenumf, t.commnum, t.address, t.nick_name, t.tag, t.create_id, t.create_date, t.orders
+          FROM snap_shot t
+          <if test="ew != null">
+              ${ew.customSqlSegment}
+          </if>
+          ORDER BY t.orders desc
+          LIMIT #{begin},#{length}
+        ) ss
+        LEFT JOIN snap_media sm ON ss.sid = sm.shot_sid
+        LEFT JOIN snap_user su ON ss.create_id = su.user_id
+        LEFT JOIN snap_like_record slr on slr.shot_sid = ss.sid and slr.create_id = #{createId}
+        ORDER BY ss.orders desc
+    </select>
+    <select id="selectAppShotListByTag" resultMap="appMap">
+        SELECT
+        ss.sid, ss.content, ss.likenum, ss.likenumf, ss.commnum, ss.address, ss.nick_name, ss.tag, ss.create_id, ss.create_date, ss.orders,
+        sm.sid as sm_sid, sm.url as sm_url, sm.hd_url as sm_hd_url,
+        su.sid as su_sid, su.head AS su_head,
+        slr.sid
+        FROM (
+          SELECT
+          t.sid, t.content, t.likenum, t.likenumf,  t.commnum, t.address, t.nick_name, t.tag, t.create_id, t.create_date, t.orders
+          from snap_shot t
+          INNER JOIN snap_shot_tag sst on sst.shot_sid = t.sid AND sst.tag = #{tag}
+          <if test="ew != null">
+            ${ew.customSqlSegment}
+          </if>
+          ORDER BY t.orders desc
+          LIMIT #{begin},#{length}
+        ) ss
+        LEFT JOIN snap_media sm on ss.sid = sm.shot_sid
+        LEFT JOIN snap_user su ON ss.create_id = su.user_id
+        LEFT JOIN snap_like_record slr on slr.shot_sid = ss.sid and slr.create_id = #{createId}
+        ORDER BY ss.orders desc
+    </select>
+
+
+
+</mapper>

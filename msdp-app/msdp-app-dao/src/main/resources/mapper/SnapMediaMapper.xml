@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iyysoft.msdp.dp.app.mapper.SnapMediaMapper">
+
+    <resultMap id="snapMediaMap" type="com.iyysoft.msdp.dp.app.entity.snap.SnapMedia">
+        <id property="sid" column="sid"/>
+        <result property="shotSid" column="shot_sid"/>
+        <result property="url" column="url"/>
+        <result property="hdUrl" column="hd_url"/>
+        <result property="createId" column="create_id"/>
+        <result property="createDate" column="create_date"/>
+        <result property="orders" column="orders"/>
+    </resultMap>
+</mapper>
