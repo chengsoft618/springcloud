@@ -23,7 +23,7 @@
         <commons.lang.version>2.6</commons.lang.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
         <commons.text.version>1.6</commons.text.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.10.1</jackson.version>
         <eu.bitwalker.version>1.21</eu.bitwalker.version>
         <org.javassist.version>3.24.1-GA</org.javassist.version>
         <kryo.version>2.24.0</kryo.version>
